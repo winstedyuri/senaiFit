@@ -1,13 +1,13 @@
 package com.senaiFit.senaiFit.entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Atividade {
+
     @Id
-    private long Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
     @Column
     private int faixaEtaria;
     @Column

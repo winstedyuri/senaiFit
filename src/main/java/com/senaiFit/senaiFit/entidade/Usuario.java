@@ -1,8 +1,5 @@
 package com.senaiFit.senaiFit.entidade;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -11,7 +8,8 @@ import java.util.Date;
 public class Usuario {
 
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @Column
     private int idade;
     @Column
