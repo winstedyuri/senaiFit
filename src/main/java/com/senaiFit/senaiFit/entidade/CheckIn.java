@@ -1,17 +1,16 @@
 package com.senaiFit.senaiFit.entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
-public class Checkin {
+public class CheckIn {
     @Id
-    private long Id;
-    @OneToOne
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private Long Id;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Atividade atividade;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Usuario usuario;
 
     public Usuario getUsuario() {

@@ -1,6 +1,5 @@
 package com.senaiFit.senaiFit.entidade;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -11,7 +10,7 @@ public class Relatorio {
     @Id
     private long Id;
     @OneToMany
-    private List<Checkin> checkin;
+    private List<CheckIn> checkin;
 
     public long getId() {
         return Id;
@@ -21,11 +20,11 @@ public class Relatorio {
         Id = id;
     }
 
-    public List<Checkin> getCheckin() {
+    public List<CheckIn> getCheckin() {
         return checkin;
     }
 
-    public void setCheckin(List<Checkin> checkin) {
+    public void setCheckin(List<CheckIn> checkin) {
         this.checkin = checkin;
     }
 }
