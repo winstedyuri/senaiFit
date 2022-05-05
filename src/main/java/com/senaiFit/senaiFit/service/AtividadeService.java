@@ -1,4 +1,4 @@
-package com.senaiFit.senaiFit.Service;
+package com.senaiFit.senaiFit.service;
 
 import com.senaiFit.senaiFit.entidade.Atividade;
 import com.senaiFit.senaiFit.repository.AtividadeRepository;

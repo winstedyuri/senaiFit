@@ -1,4 +1,4 @@
-package com.senaiFit.senaiFit.Service;
+package com.senaiFit.senaiFit.service;
 
 import com.senaiFit.senaiFit.Dto.CheckInDto;
 import com.senaiFit.senaiFit.entidade.Atividade;

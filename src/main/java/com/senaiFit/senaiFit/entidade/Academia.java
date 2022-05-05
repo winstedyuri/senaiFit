@@ -1,7 +1,6 @@
 package com.senaiFit.senaiFit.entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Academia extends Parceiros {

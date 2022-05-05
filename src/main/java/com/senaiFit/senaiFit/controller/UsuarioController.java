@@ -1,6 +1,6 @@
 package com.senaiFit.senaiFit.controller;
 
-import com.senaiFit.senaiFit.Service.UsuarioService;
+import com.senaiFit.senaiFit.service.UsuarioService;
 import com.senaiFit.senaiFit.entidade.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

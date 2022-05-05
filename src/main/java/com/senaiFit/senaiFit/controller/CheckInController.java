@@ -1,8 +1,7 @@
 package com.senaiFit.senaiFit.controller;
 
 import com.senaiFit.senaiFit.Dto.CheckInDto;
-import com.senaiFit.senaiFit.Service.CheckInService;
-import com.senaiFit.senaiFit.entidade.CheckIn;
+import com.senaiFit.senaiFit.service.CheckInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

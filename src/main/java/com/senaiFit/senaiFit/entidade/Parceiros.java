@@ -1,24 +1,21 @@
 package com.senaiFit.senaiFit.entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 public class Parceiros {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
     @Column
     private String endereco;
     @Column
-    private LocalDate dataIgressoPrograma;
-    @OneToMany
-    private List<Academia> academia;
-    @OneToMany
-    private List<Estudio> estudio;
+    private LocalDate dataIngressoPrograma;
+    @OneToOne
+    private Academia academia;
+    @OneToOne
+    private Estudio estudio;
 
     public long getId() {
         return Id;
@@ -28,19 +25,19 @@ public class Parceiros {
         Id = id;
     }
 
-    public List<Academia> getAcademia() {
+    public Academia getAcademia() {
         return academia;
     }
 
-    public void setAcademia(List<Academia> academia) {
+    public void setAcademia(Academia academia) {
         this.academia = academia;
     }
 
-    public List<Estudio> getEstudio() {
+    public Estudio getEstudio() {
         return estudio;
     }
 
-    public void setEstudio(List<Estudio> estudio) {
+    public void setEstudio(Estudio estudio) {
         this.estudio = estudio;
     }
 
@@ -52,11 +49,11 @@ public class Parceiros {
         this.endereco = endereco;
     }
 
-    public LocalDate getDataIgressoPrograma() {
-        return dataIgressoPrograma;
+    public LocalDate getDataIngressoPrograma() {
+        return dataIngressoPrograma;
     }
 
-    public void setDataIgressoPrograma(LocalDate dataIgressoPrograma) {
-        this.dataIgressoPrograma = dataIgressoPrograma;
+    public void setDataIngressoPrograma(LocalDate dataIngressoPrograma) {
+        this.dataIngressoPrograma = dataIngressoPrograma;
     }
 }
