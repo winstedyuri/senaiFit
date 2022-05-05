@@ -20,8 +20,8 @@ public class CheckInController {
 
     @PostMapping
     public ResponseEntity<String> criaCheckIn(@RequestBody CheckInDto checkInDto){
-        CheckIn checkRetorno = service.criaCheckIn(checkInDto);
-        return ResponseEntity.ok("teste");
+        String checkRetorno = service.criaCheckIn(checkInDto);
+        return ResponseEntity.ok(checkRetorno);
     }
 
 }

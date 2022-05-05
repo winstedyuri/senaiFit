@@ -6,7 +6,6 @@ import javax.persistence.*;
 public class CheckIn {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long Id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Atividade atividade;
