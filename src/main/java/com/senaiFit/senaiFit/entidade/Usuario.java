@@ -28,6 +28,16 @@ public class Usuario {
     private Double altura;
     @Column
     private Integer quantidadeCheckIn;
+    @Column
+    private Integer limiteAtividadeSemana;
+
+    public Integer getLimiteAtividadeSemana() {
+        return limiteAtividadeSemana;
+    }
+
+    public void setLimiteAtividadeSemana(Integer limiteAtividadeSemana) {
+        this.limiteAtividadeSemana = limiteAtividadeSemana;
+    }
 
     public Integer getQuantidadeCheckIn() {
         return quantidadeCheckIn;

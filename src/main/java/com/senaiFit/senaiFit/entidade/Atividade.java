@@ -12,6 +12,16 @@ public class Atividade {
     private int faixaEtaria;
     @Column
     private int duracao;
+    @Column
+    private Integer limiteSugerido;
+
+    public Integer getLimiteSugerido() {
+        return limiteSugerido;
+    }
+
+    public void setLimiteSugerido(Integer limiteSugerido) {
+        this.limiteSugerido = limiteSugerido;
+    }
 
     public int getFaixaEtaria() {
         return faixaEtaria;
