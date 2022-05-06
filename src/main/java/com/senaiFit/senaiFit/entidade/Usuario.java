@@ -26,6 +26,17 @@ public class Usuario {
     private String peso;
     @Column
     private Double altura;
+    @Column
+    private Integer quantidadeCheckIn;
+
+    public Integer getQuantidadeCheckIn() {
+        return quantidadeCheckIn;
+    }
+
+    public void setQuantidadeCheckIn(Integer quantidadeCheckIn) {
+        this.quantidadeCheckIn = quantidadeCheckIn;
+    }
+
     public String getNome() {
         return nome;
     }
