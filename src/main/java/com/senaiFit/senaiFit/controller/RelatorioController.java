@@ -18,11 +18,23 @@ public class RelatorioController {
     @Autowired
     RelatorioService relatorioService;
 
-    @GetMapping(value = "/checkin-mes/{idUsuario}/{dataInicio}/{dataFim}")
+    @GetMapping(value = "/checkin-mes-usuario/{idUsuario}/{dataInicio}/{dataFim}")
     public ResponseEntity<String> buscaCheckinMes(@PathVariable(value = "dataInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataInicio,
                                                    @PathVariable(value = "dataFim") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataFim,
                                                    @PathVariable(value = "idUsuario") Long idUsuario) {
         return ResponseEntity.ok(relatorioService.buscaCheckinMes(dataInicio, dataFim, idUsuario));
     }
 
+    @GetMapping(value = "/checkin-mes-parceiros/{idParceiros}/{dataInicio}/{dataFim}")
+    public ResponseEntity<String> buscaCheckinMesParceiros (@PathVariable(value = "dataInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataInicio,
+                                                            @PathVariable(value = "dataFim") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataFim,
+                                                            @PathVariable(value = "idParceiros") Long idParceiros) {
+        return ResponseEntity.ok(relatorioService.buscaCheckinMesParceiros(dataInicio, dataFim, idParceiros));
+    }
+
+    @GetMapping(value = "/usuarios-superam-limite/{dataInicio}/{dataFim}")
+    public ResponseEntity<String> buscaUsuariosQueSuperaramLimite (@PathVariable(value = "dataInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataInicio,
+                                                            @PathVariable(value = "dataFim") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataFim){
+        return ResponseEntity.ok(relatorioService.buscaUsuariosQueSuperaramLimite(dataInicio, dataFim));
+    }
 }

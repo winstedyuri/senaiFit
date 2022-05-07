@@ -30,6 +30,16 @@ public class Usuario {
     private Integer quantidadeCheckIn;
     @Column
     private Integer limiteAtividadeSemana;
+    @Column(columnDefinition = "boolean default false" )
+    private boolean superouLimiteSemanal;
+
+    public boolean isSuperaLimiteAtividade() {
+        return superouLimiteSemanal;
+    }
+
+    public void setSuperaLimiteAtividade(boolean superaLimiteAtividade) {
+        this.superouLimiteSemanal = superaLimiteAtividade;
+    }
 
     public Integer getLimiteAtividadeSemana() {
         return limiteAtividadeSemana;

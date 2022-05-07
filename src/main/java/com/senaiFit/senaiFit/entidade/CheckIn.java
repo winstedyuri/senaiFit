@@ -10,10 +10,21 @@ public class CheckIn {
     private Long Id;
     @Column
     private LocalDate dataCheckIn;
+    @OneToOne
+    private Parceiros parceiros;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Atividade atividade;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Usuario usuario;
+
+
+    public Parceiros getParceiros() {
+        return parceiros;
+    }
+
+    public void setParceiros(Parceiros parceiros) {
+        this.parceiros = parceiros;
+    }
 
     public LocalDate getDataCheckIn() {
         return dataCheckIn;

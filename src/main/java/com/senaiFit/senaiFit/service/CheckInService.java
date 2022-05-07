@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Optional;
 
 
@@ -39,15 +38,12 @@ public class CheckInService {
             checkInSalvo.setUsuario(usuario.get());
             quantidadeTotalCheckIns = usuario.get().getQuantidadeCheckIn() != null ? usuario.get().getQuantidadeCheckIn() : 0;
             idadeUsuario = usuario.get().getIdade();
-            limiteAtividadeSemana = usuario.get().getLimiteAtividadeSemana() != null ? usuario.get().getLimiteAtividadeSemana(): 0;
+            limiteAtividadeSemana = usuario.get().getLimiteAtividadeSemana() != null ? usuario.get().getLimiteAtividadeSemana() : 0;
         }
 
         if (atividade.isPresent()) {
             checkInSalvo.setDataCheckIn(LocalDate.now());
             checkInSalvo.setAtividade(atividade.get());
-            int duracao = atividade.get().getDuracao();
-            int limiteSugerido = atividade.get().getLimiteSugerido() != null ? atividade.get().getLimiteSugerido() : 0;
-
 
             if (idadeUsuario >= 14 && idadeUsuario <= 18) {
                 if (checkInDto.getDuracaoAtividade() >= 45) {
@@ -57,6 +53,9 @@ public class CheckInService {
                             "checkin, limitado a 135 minutos por semana.";
                 }
                 limiteAtividadeSemana += checkInDto.getDuracaoAtividade();
+                if (limiteAtividadeSemana >= 135) {
+                    usuario.get().setSuperaLimiteAtividade(true);
+                }
             }
 
             if (idadeUsuario >= 19 && idadeUsuario <= 60) {
@@ -67,9 +66,12 @@ public class CheckInService {
                             "checkin, limitado a 420 minutos por semana.";
                 }
                 limiteAtividadeSemana += checkInDto.getDuracaoAtividade();
+                if (limiteAtividadeSemana >= 420) {
+                    usuario.get().setSuperaLimiteAtividade(true);
+                }
             }
 
-            if (idadeUsuario >= 61 ) {
+            if (idadeUsuario >= 61) {
                 if (checkInDto.getDuracaoAtividade() >= 30) {
                     sugestaoDeAtividade = "Cuidado! O excesso de atividade física também pode fazer mal para sua saúde!";
                 } else {
@@ -77,6 +79,9 @@ public class CheckInService {
                             "checkin, limitado a 90 minutos por semana.";
                 }
                 limiteAtividadeSemana += checkInDto.getDuracaoAtividade();
+                if (limiteAtividadeSemana >= 90) {
+                    usuario.get().setSuperaLimiteAtividade(true);
+                }
             }
             quantidadeTotalCheckIns += 1;
         }
